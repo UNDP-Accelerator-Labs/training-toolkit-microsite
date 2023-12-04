@@ -1,10 +1,10 @@
-title: UNDP AccLab Toolkit Micro-site template
+title: TRAINING - Toolkit Micro-site
 description: >
-  Welcome to the UNDP AccLab Toolkit Micro-site project! This README provides a quick guide on how to set up and customize your Toolkit site.
+  Welcome to the Toolkit Micro-site Training site! 
 
 header_background_color: "#FF5733"
 
-header_info_text: "This is a prototype. Please help the UNDP Accelerator Labs improve it by <a href='https://forms.office.com/e/iLZf9V6aDZ' target='_blank'>participating in user testing</a>."
+header_info_text: "This site is for training purpose. Fork and customise <a target="_blank" href="https://github.com/UNDP-Accelerator-Labs/toolkit-micro-site-template"> the template site </a> if you want to replicate this toolkit."
 logo_image_path: "/public/imgs/UNDP_accelerator_labs_logo_vertical_color_RGB.png"
 
 
