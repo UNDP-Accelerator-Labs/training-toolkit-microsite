@@ -1,11 +1,10 @@
-title: "TRAINING - Toolkit Micro-site"
+title: TRAINING - Toolkit Micro-site
 description: "Welcome to the Toolkit Micro-site Training site!"
-
 header_background_color: "#FF5733"
 
-header_info_text: "This site is for training purpose. Fork and customise <a target="_blank" href="https://github.com/UNDP-Accelerator-Labs/toolkit-micro-site-template"> the template site </a> if you want to replicate this toolkit."
+header_info_text: >
+  "This site is for training purpose. Fork and customise <a target='_blank' href='https://github.com/UNDP-Accelerator-Labs/toolkit-micro-site-template'> the template site </a> if you want to replicate this toolkit."
 logo_image_path: "/public/imgs/UNDP_accelerator_labs_logo_vertical_color_RGB.png"
-
 
 # Footer Configuration
 footer_organization: "UNDP Accelerator Labs"

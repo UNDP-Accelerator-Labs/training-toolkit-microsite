@@ -1,4 +1,4 @@
 exclude:
   - README.md
   - Tutorials/
-baseurl: "/toolkit-micro-site-template"
+baseurl: "/training-toolkit-micro-site"
