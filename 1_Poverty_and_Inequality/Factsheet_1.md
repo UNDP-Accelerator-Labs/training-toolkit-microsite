@@ -8,6 +8,8 @@ layout: default
 
 # How to use this toolkit
 
+## Download
+You can download file from [here](./_Accelerator_Labs_PMD.pdf).
 # Glossary
 
 We use the metaphor of the toolkit to emphasize the operational, enabling nature of the work you are reading right now. The following words are used throughout it a metaphorical sense:
