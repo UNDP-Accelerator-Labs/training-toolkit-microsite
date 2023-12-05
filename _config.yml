@@ -2,15 +2,15 @@ baseurl: "/training-toolkit-microsite"
 plugins:
     - jekyll-seo-tag
 gems:
-- jekyll-email-protect
-
+  - jekyll-email-protect
 exclude:
   - README.md
+  - connect-with-us.md
   - Tutorials/
   - vendor
   - CNAME
   - README.md
-  - node_modules
+  - node_modules  
   - .sass-cache
   - Gemfile
   - Gemfile.lock
