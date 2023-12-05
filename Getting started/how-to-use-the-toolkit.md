@@ -1,6 +1,6 @@
 ---
 title: How to use the toolkit
-parent_order: 1
+parent_order: 5
 nav_order: 3
 layout: default
 ---
