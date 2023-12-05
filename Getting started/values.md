@@ -1,6 +1,6 @@
 ---
 title: Values and attitude
-parent_order: 1
+parent_order: 5
 nav_order: 2
 layout: default
 ---
