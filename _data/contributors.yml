@@ -25,3 +25,12 @@ John-doe:
   twitter: #
   github: https://github.com/this-pama
   linkedin: https://www.linkedin.com/
+
+Adedapo-Aderemi:
+  name: Adedapo Aderemi
+  bio: I am a software developer
+  email: adedapo.aderemi@email.com
+  picture_dir: '/img/contributors/Adedapo.png'
+  twitter: #
+  github: https://github.com/this-pama
+  linkedin: https://www.linkedin.com/
