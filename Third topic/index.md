@@ -1,6 +1,6 @@
 ---
 title: Third topic
-menu: 3
+menu: 6
 layout: default
 ---
 
