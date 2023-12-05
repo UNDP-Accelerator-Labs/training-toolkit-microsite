@@ -5,7 +5,7 @@ layout: default
 parent: Home
 has_children: false
 
-menu: 4
+menu: 6
 ---
 
 ## Meet the Contributors
