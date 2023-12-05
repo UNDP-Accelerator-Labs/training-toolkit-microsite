@@ -1,4 +1,5 @@
 exclude:
   - README.md
+  - connect-with-us.md
   - Tutorials/
 baseurl: "/training-toolkit-microsite"
