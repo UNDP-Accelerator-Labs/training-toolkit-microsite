@@ -10,6 +10,10 @@ layout: default
 
 ## Download
 You can download file from [here](https://github.com/UNDP-Accelerator-Labs/training-toolkit-microsite/blob/2612581b35c80f5e7d1e92782f82e7d82bf80e8e/1_Poverty_and_Inequality/_Accelerator_Labs_PMD.pdf).
+
+You can also download a sample pdf from [this link](https://github.com/UNDP-Accelerator-Labs/training-toolkit-microsite/blob/acb9f059ed5cd049cb410980e03ecb081ac39134/1_Poverty_and_Inequality/0bb23c2dcefb34c8640f063e2fdad364.pdf)
+
+
 # Glossary
 
 We use the metaphor of the toolkit to emphasize the operational, enabling nature of the work you are reading right now. The following words are used throughout it a metaphorical sense:
