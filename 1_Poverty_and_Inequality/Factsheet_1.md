@@ -64,3 +64,5 @@ If the factsheet convinces you, you can move on to the resource itself. This mig
 ## Ask for support
 
 All resources have an author. The ethos of UNDP's Accelerator Labs and Chief Digital Office is one of sharing knowledge, so you can reach out to the author if you need more information and support.
+
+Refer to the pdf [this link](https://github.com/UNDP-Accelerator-Labs/training-toolkit-microsite/blob/527049641667b22ba016d0d828172c127ee180a6/1_Poverty_and_Inequality/ABC%20Co-Creation%20Summary.pdf)
