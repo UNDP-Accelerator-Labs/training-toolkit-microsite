@@ -25,6 +25,8 @@ module Jekyll
         self.read_yaml(File.join(base, "_layouts"), "contributor.html")
         self.data["title"] = contributor_data["name"]
         self.data["contributor"] = contributor_data
+        self.data["contributor"]["id"] = contributor_id
+        self.data["contributor"]["href"] = "/contributors" + "/#{contributor_id}.html"
       end
     end
   end
