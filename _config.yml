@@ -1,6 +1,6 @@
 baseurl: "/training-toolkit-microsite"
 plugins:
-    - jekyll-seo-tag
+  - jekyll-seo-tag
 gems:
   - jekyll-email-protect
 exclude:
