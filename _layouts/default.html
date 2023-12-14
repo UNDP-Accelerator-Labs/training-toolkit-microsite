@@ -211,7 +211,7 @@
                 <div class="search-filter">
                   <div class="select-wrapper">
                     <div id="tag-div"></div>
-                    <div id="category-div"></div>
+                    <div id="sdg-div"></div>
                     
                     
                     <span class="active-filter">Active Filters:</span>
@@ -239,8 +239,8 @@
                     {{ content }}
                   </div>
 
-                  <!-- BEGIN TAGS AND CATEGORY CHIPS -->
-                  {% if page.tags or page.categories %}
+                  <!-- BEGIN TAGS AND SDG CHIPS -->
+                  {% if page.tags or page.sdg %}
                   <div class="pt-3" >
                   <hr/>
                   <div>
@@ -251,8 +251,8 @@
                   </div>
 
                   <div>
-                    {% if page.categories %}
-                    <h5> Category</h5>
+                    {% if page.sdg %}
+                    <h5> SDG</h5>
                     {% include corporate/category-chip.html %}
                     {% endif %}
                   </div>

@@ -7,7 +7,8 @@ layout: default
 # CONFIGURATION BELOW IS ONLY NEEDED IF YOU WANT TO USE TAGS AND CATEGORY IN THE TOOLKIT
 tags: [poverty, inequality, women empoverment, digital]
 
-categories: [ financial inclusion ]
+sdg: [ Gender Equality, Clean Water and Sanitation, Decent Work and Economic Growth  ]
+
 ---
 
 ## Values and attitude

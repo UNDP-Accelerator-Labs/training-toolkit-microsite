@@ -5,7 +5,7 @@
 var index = lunr(function () {
   this.field('title')
   this.field('content', {boost: 10})
-  this.field('category')
+  this.field('sdg')
   this.field('tags')
   this.field('url')
   this.ref('id')
@@ -19,7 +19,7 @@ index.add({
     title: {{post.title | jsonify}},
     content: {{post.content | strip_html | jsonify}},
     tags: {{ post.tags | jsonify }},
-    categories: {{ post.categories | jsonify }},
+    sdg: {{ post.sdg | jsonify }},
     url: {{ post.url | jsonify }},
     id: {{count}}
 });
@@ -32,12 +32,12 @@ index.add({
     window.tags = {{ tags | jsonify}}
 {% endfor %}
 
-{% assign categories = "" | split: "," %}
-{% for cg in post.categories %}
-    {% unless categories contains cg %}
-        {% assign categories = categories | push: cg %}
+{% assign sdg = "" | split: "," %}
+{% for cg in post.sdg %}
+    {% unless sdg contains cg %}
+        {% assign sdg = sdg | push: cg %}
     {% endunless %}
-    window.categories = {{ categories | jsonify}}
+    window.sdg = {{ sdg | jsonify}}
 {% endfor %}
 
 
@@ -52,7 +52,7 @@ var store = [{% for post in site.pages %}{
   "url": {{ post.url | jsonify  }},
   "content": {{post.content | strip_html | jsonify}},
   "tags": {{ post.tags | jsonify }},
-  "categories": {{ post.categories | jsonify }},
+  "sdg": {{ post.sdg | jsonify }},
   "excerpt": {{ post.content | strip_html | truncatewords: 20 | jsonify }},
   "id": {{ count }}
 }{% unless forloop.last %},{% endunless %}{% endfor %}]
@@ -92,9 +92,9 @@ $(document).ready(function() {
   });
   
 
-  //POPULATE TAGS AND CATEGORY FILTER
+  //POPULATE TAGS AND SDG FILTER
 var tagsdiv = $('#tag-div');
-var categorydiv = $('#category-div')
+var sdgdiv = $('#sdg-div')
 
 if(tags.length > 0){
     let tg = `
@@ -134,12 +134,12 @@ if(tags.length > 0){
 
     tagsdiv.append(tg)
 }
-
-if(categories.length > 0){
+console.log('sdg ', sdg )
+if(sdg.length > 0){
     let tg = `
     <div class="multi-select" data-multi-select="">
-        <button aria-label="Region" aria-expanded="false" data-id="category">
-        Category
+        <button aria-label="Region" aria-expanded="false" data-id="sdg">
+        SDG
         </button>
         <ul
         data-type="region"
@@ -150,16 +150,16 @@ if(categories.length > 0){
         >
     `;
 
-    for(let i = 0; i < categories.length; i++) {
+    for(let i = 0; i < sdg.length; i++) {
         tg += `
             <li role="option">
                 <div class="form-check">
-                    <label for="category${i+1}">${categories[i]?.toUpperCase()}</label>
+                    <label for="sdg${i+1}">${sdg[i]}</label>
                     <input
                         type="checkbox"
-                        id="${categories[i]}"
-                        name="categories"
-                        value="${categories[i]}"
+                        id="${sdg[i]}"
+                        name="sdg"
+                        value="${sdg[i]}"
                     />
                 </div>
             </li>  
@@ -171,11 +171,11 @@ if(categories.length > 0){
         </div>
     `;
 
-    categorydiv.append(tg)
+    sdgdiv.append(tg)
 }
 
 let taglist = []
-let categorylist = []
+let sdglist = []
 
 let searchitemfn = post => `
 <div class="tertiary">
@@ -196,7 +196,7 @@ let contentCopy = $("#content").html(); // Store the current content
 
 let filterresult = () => {
     resultdiv.empty()
-    resultdiv.prepend('<h6 class="">Showing results for  ' + [...categorylist, ...taglist].toString() + '</h6>');
+    resultdiv.prepend('<h6 class="">Showing results for  ' + [...sdglist, ...taglist].toString() + '</h6>');
     for(post of store){
         if(post?.tags?.some(tg => taglist.includes(tg) )){
             contentdiv.empty()
@@ -204,7 +204,7 @@ let filterresult = () => {
 
             resultdiv.append(searchitem);
         }
-        else if(post?.categories?.some(tg => categorylist.includes(tg) )){
+        else if(post?.sdg?.some(tg => sdglist.includes(tg) )){
             contentdiv.empty()
             var searchitem = searchitemfn(post)
 
@@ -217,8 +217,8 @@ $(document).on('multiSelectInputToggle', (e) => {
     let { value, checked, name } = e.target;
     
     if(checked && name === 'tags') taglist.push(value)
-    else if(checked && name === 'categories') categorylist.push(value)
-    else if(!checked && name === 'categories' && categorylist.includes(value)) categorylist.splice(categorylist.indexOf(value), 1)
+    else if(checked && name === 'sdg') sdglist.push(value)
+    else if(!checked && name === 'sdg' && sdglist.includes(value)) sdglist.splice(sdglist.indexOf(value), 1)
     else if(taglist.includes(value)) taglist.splice(taglist.indexOf(value), 1)
   
     filterresult()
@@ -227,30 +227,30 @@ $(document).on('multiSelectInputToggle', (e) => {
 
 $(document).on('filterSearchChipRemoval', (e) => {
     let textContent = e.target.getAttribute('option-name');
-    categorylist.includes(textContent) && categorylist.splice(categorylist.indexOf(textContent), 1)
+    sdglist.includes(textContent) && sdglist.splice(sdglist.indexOf(textContent), 1)
     taglist.includes(textContent) && taglist.splice(taglist.indexOf(textContent), 1)
     filterresult()
 });
 
 $(document).on('filterSearchClear', (e) => {
-    categorylist = [];
+    sdglist = [];
     taglist =  [];
     resultdiv.empty()
     $("#content").html(contentCopy);
 });
 
-//GET ELEMTENTS WITH ID TAGS AND CATEGORY
+//GET ELEMTENTS WITH ID TAGS AND SDG
 $('.tag-chip').on('click', e =>{
     let textContent = e.target.getAttribute('text-value');
     taglist = [ textContent ]
-    categorylist = []
+    sdglist = []
     contentdiv.empty()
     filterresult()
 } )
 
-$('.category-chip').on('click', e =>{
+$('.sdg-chip').on('click', e =>{
     let textContent = e.target.getAttribute('text-value');
-    categorylist = [textContent]
+    sdglist = [textContent]
     taglist = []
     contentdiv.empty()
     filterresult()
