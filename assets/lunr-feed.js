@@ -134,7 +134,7 @@ if(tags.length > 0){
 
     tagsdiv.append(tg)
 }
-console.log('sdg ', sdg )
+
 if(sdg.length > 0){
     let tg = `
     <div class="multi-select" data-multi-select="">
