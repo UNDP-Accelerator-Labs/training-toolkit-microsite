@@ -1,36 +1,53 @@
-Jane-doe:
-  name: Jane Doe
-  bio: This is Jane Doe bio
-  email: Jane.doe@email.com
-  # picture_dir: '/img/contributors/Jane.png'
-  organization: UNDP Accelerator Labs
-  twitter: #
-  github: https://github.com/this-pama
-  linkedin: https://www.linkedin.com/
+Jasmine-Smith:
+  name: Jasmine Smith
+  bio: >
+    Jasmine Smith is a seasoned environmental activist and project coordinator with GreenEarth Initiative. With over a decade of experience, Jasmine has led multiple campaigns focused on sustainable living and climate change awareness. She specializes in community mobilization and education programs, aiming to involve local communities in environmental conservation efforts. Jasmine is known for her dynamic workshop sessions and engaging public speaking. She holds a Master’s in Environmental Science from the University of California, Berkeley. Her work extends to collaborating with government bodies to implement eco-friendly policies.
+  email: jasmine.smith@greenearth.org
+  #picture_dir: '/imgs/contributors/jasmine_smith.jpg'
+  organization: GreenEarth Initiative
+  job_title: Senior Project Coordinator
 
-Jake-doe:
-  name: Jake Doe
-  bio: This is Jake Doe bio
-  email: Jake.doe@email.com
-  # picture_dir: '/img/contributors/Jake.png'
-  twitter: #
-  github: https://github.com/this-pama
-  linkedin: https://www.linkedin.com/
+Carlos-Rodriguez:
+  name: Carlos Rodriguez
+  bio: >
+    Carlos Rodriguez is an innovative tech entrepreneur, founder of TechSolutions Inc., and a pioneer in developing smart city technologies. His expertise lies in integrating IoT with urban infrastructure to enhance efficiency and quality of life. Carlos has spearheaded projects in multiple cities worldwide, transforming them into tech-savvy urban centers. He frequently speaks at international technology forums and collaborates with universities to foster young tech talents. Carlos holds a degree in Computer Engineering from MIT and an MBA from Harvard Business School. His vision is to bridge the gap between technology and everyday life.
+  email: carlos.rodriguez@techsolutions.com
+  #picture_dir: '/imgs/contributors/carlos_rodriguez.jpg'
+  organization: TechSolutions Inc.
+  job_title: CEO
 
-John-doe:
-  name: John Doe
-  bio: This is John Doe bio
-  email: John.doe@email.com
-  # picture_dir: '/img/contributors/John.png'
-  twitter: #
-  github: https://github.com/this-pama
-  linkedin: https://www.linkedin.com/
+Lena-Kim:
+  name: Lena Kim
+  bio: >
+    Lena Kim is a financial analyst with a sharp eye for market trends and economic patterns. Currently working at Global Finance Corp., she provides insightful analysis to help shape investment strategies and market forecasts. Lena’s expertise includes emerging markets and cryptocurrency. She is known for her comprehensive reports and has been a guest speaker at various financial summits. Lena earned her degree in Economics from the London School of Economics and is currently pursuing her CFA certification. She is passionate about mentoring young women interested in finance and economics.
+  email: lena.kim@globalfinance.com
+  #picture_dir: '/imgs/contributors/lena_kim.jpg'
+  organization: Global Finance Corp.
+  job_title: Senior Financial Analyst
 
-Adedapo-Aderemi:
-  name: Adedapo Aderemi
-  bio: I am a software developer
-  email: adedapo.aderemi@email.com
-  picture_dir: '/imgs/contributors/Adedapo.png'
-  twitter: #
-  github: https://github.com/this-pama
-  linkedin: https://www.linkedin.com/
+Marcus-Johnson:
+  name: Marcus Johnson
+  bio: >
+    Marcus Johnson is an experienced urban planner and architect, currently leading the Urban Revitalization Project in New York. With a focus on sustainable and inclusive urban development, Marcus has been instrumental in transforming cityscapes into vibrant, functional spaces. He collaborates closely with local communities to ensure their needs are met in urban designs. Marcus regularly contributes articles to architecture journals and is a guest lecturer at Columbia University. He holds a Master's degree in Architecture from Princeton University. Marcus is an advocate for green building practices and pedestrian-friendly city planning.
+  email: marcus.johnson@urbanrevitalize.com
+  #picture_dir: '/imgs/contributors/marcus_johnson.jpg'
+  organization: Urban Revitalization Project
+  job_title: Chief Urban Planner
+
+Sophia-Martinez:
+  name: Sophia Martinez
+  bio: >
+    Sophia Martinez is a human rights lawyer with a strong commitment to justice and equality. Working with Human Rights Watch, she has been involved in high-profile cases defending the rights of marginalized communities. Sophia’s work extends beyond the courtroom to public advocacy and legal reform. She is a key figure in initiatives for legal literacy and has conducted workshops globally. Sophia holds a law degree from Yale Law School and has been recognized for her contributions with several awards. She is a vocal advocate for women’s rights and refugee protection.
+  email: sophia.martinez@hrwatch.org
+  #picture_dir: '/imgs/contributors/sophia_martinez.jpg'
+  organization: Human Rights Watch
+  job_title: Lead Counsel
+
+Daniel-Chen:
+  name: Daniel Chen
+  bio: >
+    Daniel Chen is a distinguished biomedical researcher focused on developing innovative solutions for chronic diseases. He currently leads a research team at BioTech Solutions, working on breakthrough therapies in immunology. Daniel’s work has been published in numerous scientific journals, and he holds several patents in medical technology. He is also a regular speaker at international medical conferences. Daniel earned his PhD in Biomedical Engineering from Stanford University. He is passionate about bridging the gap between research and real-world medical applications, aiming to improve patient care and treatment methods.
+  email: daniel.chen@biotechsolutions.com
+  #picture_dir: '/imgs/contributors/daniel_chen.jpg'
+  organization: BioTech Solutions
+  job_title: Head of Research

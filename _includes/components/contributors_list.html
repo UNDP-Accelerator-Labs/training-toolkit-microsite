@@ -3,7 +3,7 @@
   = contributor_data[0] %} {% assign contributor = contributor_data[1] %}
   <div class="cell medium-4">
     <div class="author-box">
-      <a href="{{site.baseurl}}{{contributor.href}}" class="secondary">
+      <a href="{{ site.baseurl }}{{contributor.href}}" class="secondary">
       <div class="author__img">
         {% if contributor.picture_dir %}
         <img
@@ -36,21 +36,33 @@
     <p></p>
 
     <div class="cta__link cta--space">
+      {% if contributor.email %}
       <span style="padding-right: 0.4em"
         ><a href="mailto:{{ contributor.email | encode_email }}">Contact </a></span
       >
+      {% endif %}
+
+      {% if contributor.twitter %}
       <span style="padding-right: 0.4em"
         ><a target="_blank" href="{{ contributor.twitter }}"
           ><i class="fa fa-twitter"></i></a
       ></span>
+      {% endif %}
+
+      {% if contributor.linkedin %}
       <span style="padding-right: 0.4em"
         ><a target="_blank" href="{{ contributor.linkedin }}"
           ><i class="fa fa-linkedin"></i></a
       ></span>
+      {% endif %}
+
+      {% if contributor.github %}
       <span style="padding-right: 0.4em"
         ><a target="_blank" href="{{ contributor.github }}"
           ><i class="fa fa-github"></i></a
       ></span>
+      {% endif %}
+
     </div>
   </div>
   {% endfor %}
