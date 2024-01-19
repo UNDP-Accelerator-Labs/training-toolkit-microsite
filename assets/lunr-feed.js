@@ -7,10 +7,20 @@ var index = lunr(function () {
   this.field('content', {boost: 10})
   this.field('sdg')
   this.field('tags')
+  this.field('rblac_priorities')
+  this.field('signature_solutions')
+  this.field('enablers')
   this.field('url')
   this.ref('id')
 });
 
+let tags = []
+let sdg = []
+let rblac_priorities = []
+let signature_solutions = []
+let enablers = []
+
+// rblac_priorities, signature_solutions, enablers
 
 {% assign count = 0 %}
 {% for post in site.pages %}
@@ -20,26 +30,47 @@ index.add({
     content: {{post.content | strip_html | jsonify}},
     tags: {{ post.tags | jsonify }},
     sdg: {{ post.sdg | jsonify }},
+    enablers: {{ post.enablers | jsonify }},
+    signature_solutions: {{ post.signature_solutions | jsonify }},
+    rblac_priorities: {{ post.rblac_priorities | jsonify }},
     url: {{ post.url | jsonify }},
     id: {{count}}
 });
 
-{% assign tags = "" | split: "," %}
+//Iterate through the tags
 {% for tg in post.tags %}
-    {% unless tags contains tg %}
-        {% assign tags = tags | push: tg %}
-    {% endunless %}
-    window.tags = {{ tags | jsonify}}
+    if(tags.indexOf({{ tg | jsonify }}) < 0) {
+        tags.push({{ tg | jsonify }})
+    }
 {% endfor %}
 
-{% assign sdg = "" | split: "," %}
+//Iterate through the SDGs
 {% for cg in post.sdg %}
-    {% unless sdg contains cg %}
-        {% assign sdg = sdg | push: cg %}
-    {% endunless %}
-    window.sdg = {{ sdg | jsonify}}
+    if(sdg.indexOf({{ cg | jsonify }}) < 0) {
+        sdg.push({{ cg | jsonify }})
+    }
 {% endfor %}
 
+//Iterate through the Enablers
+{% for ena in post.enablers %}
+    if(enablers.indexOf({{ ena | jsonify }}) < 0) {
+        enablers.push({{ ena | jsonify }})
+    }
+{% endfor %}
+
+//Iterate through the Signature Solutions
+{% for ss in post.signature_solutions %}
+    if(signature_solutions.indexOf({{ ss | jsonify }}) < 0) {
+        signature_solutions.push({{ ss | jsonify }})
+    }
+{% endfor %}
+
+//Iterate through the RBLAC Priorities
+{% for rp in post.rblac_priorities %}
+    if(rblac_priorities.indexOf({{ rp | jsonify }}) < 0) {
+        rblac_priorities.push({{ rp | jsonify }})
+    }
+{% endfor %}
 
 {% endunless %}
 {% assign count = count | plus: 1 %}
@@ -92,9 +123,12 @@ $(document).ready(function() {
   });
   
 
-  //POPULATE TAGS AND SDG FILTER
+//POPULATE TAGS AND SDG FILTER
 var tagsdiv = $('#tag-div');
 var sdgdiv = $('#sdg-div')
+var rblac_priorities_div = $('#rblac_priorities_div')
+var enablers_div = $('#enablers_div')
+var signature_solutions_div = $('#signature_solutions_div')
 
 if(tags.length > 0){
     let tg = `
@@ -174,8 +208,128 @@ if(sdg.length > 0){
     sdgdiv.append(tg)
 }
 
+if(enablers.length > 0){
+    let tg = `
+    <div class="multi-select" data-multi-select="">
+        <button aria-label="Region" aria-expanded="false" data-id="enablers">
+            Enablers
+        </button>
+        <ul
+        data-type="region"
+        role="listbox"
+        aria-multiselectable="true"
+        aria-hidden="true"
+        aria-modal="true"
+        >
+    `;
+
+    for(let i = 0; i < enablers.length; i++) {
+        tg += `
+            <li role="option">
+                <div class="form-check">
+                    <label for="enablers${i+1}">${enablers[i]}</label>
+                    <input
+                        type="checkbox"
+                        id="${enablers[i]}"
+                        name="enablers"
+                        value="${enablers[i]}"
+                    />
+                </div>
+            </li>  
+        `;
+    }
+
+    tg += `
+            </ul>
+        </div>
+    `;
+
+    enablers_div.append(tg)
+}
+
+if(signature_solutions.length > 0){
+    let tg = `
+    <div class="multi-select" data-multi-select="">
+        <button aria-label="Region" aria-expanded="false" data-id="signature_solutions">
+            Signature Solutions
+        </button>
+        <ul
+        data-type="region"
+        role="listbox"
+        aria-multiselectable="true"
+        aria-hidden="true"
+        aria-modal="true"
+        >
+    `;
+
+    for(let i = 0; i < signature_solutions.length; i++) {
+        tg += `
+            <li role="option">
+                <div class="form-check">
+                    <label for="signature_solutions${i+1}">${signature_solutions[i]}</label>
+                    <input
+                        type="checkbox"
+                        id="${signature_solutions[i]}"
+                        name="signature_solutions"
+                        value="${signature_solutions[i]}"
+                    />
+                </div>
+            </li>  
+        `;
+    }
+
+    tg += `
+            </ul>
+        </div>
+    `;
+
+    signature_solutions_div.append(tg)
+}
+
+if(rblac_priorities.length > 0){
+    let tg = `
+    <div class="multi-select" data-multi-select="">
+        <button aria-label="Region" aria-expanded="false" data-id="rblac_priorities">
+        RBLAC Priorities
+        </button>
+        <ul
+        data-type="region"
+        role="listbox"
+        aria-multiselectable="true"
+        aria-hidden="true"
+        aria-modal="true"
+        >
+    `;
+
+    for(let i = 0; i < rblac_priorities.length; i++) {
+        tg += `
+            <li role="option">
+                <div class="form-check">
+                    <label for="rblac_priorities${i+1}">${rblac_priorities[i]}</label>
+                    <input
+                        type="checkbox"
+                        id="${rblac_priorities[i]}"
+                        name="rblac_priorities"
+                        value="${rblac_priorities[i]}"
+                    />
+                </div>
+            </li>  
+        `;
+    }
+
+    tg += `
+            </ul>
+        </div>
+    `;
+
+    rblac_priorities_div.append(tg)
+}
+
 let taglist = []
 let sdglist = []
+let enablerslist = []
+let signature_solutionslist = []
+let rblac_prioritieslist = []
 
 let searchitemfn = post => `
 <div class="tertiary">
@@ -196,7 +350,7 @@ let contentCopy = $("#content").html(); // Store the current content
 
 let filterresult = () => {
     resultdiv.empty()
-    resultdiv.prepend('<h6 class="">Showing results for  ' + [...sdglist, ...taglist].toString() + '</h6>');
+    resultdiv.prepend('<h6 class="">Showing results for  ' + [...sdglist, ...taglist, rblac_prioritieslist, signature_solutionslist, enablerslist].toString() + '</h6>');
     for(post of store){
         if(post?.tags?.some(tg => taglist.includes(tg) )){
             contentdiv.empty()
@@ -229,6 +383,10 @@ $(document).on('filterSearchChipRemoval', (e) => {
     let textContent = e.target.getAttribute('option-name');
     sdglist.includes(textContent) && sdglist.splice(sdglist.indexOf(textContent), 1)
     taglist.includes(textContent) && taglist.splice(taglist.indexOf(textContent), 1)
+
+    signature_solutionslist.includes(textContent) && signature_solutionslist.splice(signature_solutionslist.indexOf(textContent), 1)
+    enablerslist.includes(textContent) && enablerslist.splice(enablerslist.indexOf(textContent), 1)
+    rblac_prioritieslist.includes(textContent) && rblac_prioritieslist.splice(rblac_prioritieslist.indexOf(textContent), 1)
     filterresult()
 });
 
@@ -252,6 +410,39 @@ $('.sdg-chip').on('click', e =>{
     let textContent = e.target.getAttribute('text-value');
     sdglist = [textContent]
     taglist = []
+    contentdiv.empty()
+    filterresult()
+} )
+
+$('.enablers-chip').on('click', e =>{
+    let textContent = e.target.getAttribute('text-value');
+    enablerslist = [textContent]
+    taglist = []
+    sdglist = []
+    signature_solutionslist = []
+    rblac_prioritieslist = []
+    contentdiv.empty()
+    filterresult()
+} )
+
+$('.signature_solutions-chip').on('click', e =>{
+    let textContent = e.target.getAttribute('text-value');
+    enablerslist = []
+    taglist = []
+    sdglist = []
+    signature_solutionslist = [ textContent]
+    rblac_prioritieslist = []
+    contentdiv.empty()
+    filterresult()
+} )
+
+$('.rblac_priorities-chip').on('click', e =>{
+    let textContent = e.target.getAttribute('text-value');
+    enablerslist = []
+    taglist = []
+    sdglist = []
+    signature_solutionslist = [ ]
+    rblac_prioritieslist = [textContent]
     contentdiv.empty()
     filterresult()
 } )

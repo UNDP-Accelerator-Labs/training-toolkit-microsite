@@ -211,8 +211,13 @@
                 <div class="search-filter">
                   <div class="select-wrapper">
                     <div id="tag-div"></div>
-                    <div id="sdg-div"></div>
                     
+                    <div id="signature_solutions_div"></div>
+                    <div id="enablers_div"></div>
+                    <div id="rblac_priorities_div"></div>
+
+
+                    <div id="sdg-div"></div>
                     
                     <span class="active-filter">Active Filters:</span>
                     <div class="selected-chips"></div>
@@ -251,11 +256,33 @@
                   </div>
 
                   <div>
+                    {% if page.signature_solutions %}
+                    <h5> Signature Solutions</h5>
+                    {% include corporate/category-chip.html %}
+                    {% endif %}
+                  </div>
+
+                  <div>
+                    {% if page.enablers %}
+                    <h5> Enablers</h5>
+                    {% include corporate/category-chip.html %}
+                    {% endif %}
+                  </div>
+
+                  <div>
+                    {% if page.rblac_priorities %}
+                    <h5> RBLAC Priorities </h5>
+                    {% include corporate/category-chip.html %}
+                    {% endif %}
+                  </div>
+
+                  <div>
                     {% if page.sdg %}
                     <h5> SDG</h5>
                     {% include corporate/category-chip.html %}
                     {% endif %}
                   </div>
+
                 </div>
                 {% endif %}
                   <!-- END TAGS AND CATEGORY CHIPS -->

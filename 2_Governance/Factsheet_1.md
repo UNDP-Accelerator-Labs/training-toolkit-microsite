@@ -5,12 +5,12 @@ nav_order: 1
 layout: default
 
 # CONFIGURATION BELOW IS ONLY NEEDED IF YOU WANT TO USE TAGS AND CATEGORY IN THE TOOLKIT
-# tags: [Governance, Poverty]
 
-enablers: [ ]
-signature_solutions : [ ]
-rblac_priorities: [ ]
-sdg: [ SDG1, SG2]
+signature_solutions : [ Poverty and Inequality, Governance  ]
+enablers: [ Digitalisation ]
+rblac_priorities: [ Pillar 1 Inclusive and Sustainable Growth ]
+sdg: [ 1 No Poverty ]
+
 ---
 
 # Using design thinking to design public products or services 

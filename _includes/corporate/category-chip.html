@@ -1,3 +1,15 @@
+{% for tag in page.signature_solutions %}
+<a class="chip signature_solutions-chip" text-value="{{ tag }}" href="#" role="button">{{ tag | capitalize }}</a>
+{% endfor %}
+
+{% for tag in page.enablers %}
+<a class="chip enablers-chip" text-value="{{ tag }}" href="#" role="button">{{ tag | capitalize }}</a>
+{% endfor %}
+
+{% for tag in page.rblac_priorities %}
+<a class="chip rblac_priorities-chip" text-value="{{ tag }}" href="#" role="button">{{ tag | capitalize }}</a>
+{% endfor %}
+
 {% for tag in page.sdg %}
 <a class="chip sdg-chip" text-value="{{ tag }}" href="#" role="button">{{ tag | capitalize }}</a>
 {% endfor %}
