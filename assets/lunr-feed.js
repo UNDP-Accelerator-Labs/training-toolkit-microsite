@@ -350,8 +350,9 @@ let contentCopy = $("#content").html(); // Store the current content
 
 let filterresult = () => {
     resultdiv.empty()
-    resultdiv.prepend('<h6 class="">Showing results for  ' + [...sdglist, ...taglist, rblac_prioritieslist, signature_solutionslist, enablerslist].toString() + '</h6>');
+    resultdiv.prepend('<h6 class="">Showing results for  ' + [...sdglist, ...taglist, ...rblac_prioritieslist, ...signature_solutionslist, ...enablerslist].toString() + '</h6>');
     for(post of store){
+        console.log('V ', post)
         if(post?.tags?.some(tg => taglist.includes(tg) )){
             contentdiv.empty()
             var searchitem = searchitemfn(post)
@@ -364,6 +365,24 @@ let filterresult = () => {
 
             resultdiv.append(searchitem);
         }
+        else if(post?.enablers?.some(tg => enablerslist.includes(tg) )){
+            contentdiv.empty()
+            var searchitem = searchitemfn(post)
+
+            resultdiv.append(searchitem);
+        }
+        else if(post?.signature_solutions?.some(tg => signature_solutionslist.includes(tg) )){
+            contentdiv.empty()
+            var searchitem = searchitemfn(post)
+
+            resultdiv.append(searchitem);
+        }
+        else if(post?.rblac_priorities?.some(tg => rblac_prioritieslist.includes(tg) )){
+            contentdiv.empty()
+            var searchitem = searchitemfn(post)
+
+            resultdiv.append(searchitem);
+        }
     };
 }
 
@@ -371,7 +390,13 @@ $(document).on('multiSelectInputToggle', (e) => {
     let { value, checked, name } = e.target;
     
     if(checked && name === 'tags') taglist.push(value)
+    else if(checked && name === 'signature_solutions') sdglist.push(value)
+    else if(checked && name === 'enablers') sdglist.push(value)
+    else if(checked && name === 'rblac_priorities') sdglist.push(value)
     else if(checked && name === 'sdg') sdglist.push(value)
+    else if(!checked && name === 'signature_solutions' && signature_solutionslist.includes(value)) signature_solutionslist.splice(signature_solutionslist.indexOf(value), 1)
+    else if(!checked && name === 'enablers' && enablerslist.includes(value)) enablerslist.splice(enablerslist.indexOf(value), 1)
+    else if(!checked && name === 'rblac_priorities' && rblac_prioritieslist.includes(value)) rblac_prioritieslist.splice(rblac_prioritieslist.indexOf(value), 1)
     else if(!checked && name === 'sdg' && sdglist.includes(value)) sdglist.splice(sdglist.indexOf(value), 1)
     else if(taglist.includes(value)) taglist.splice(taglist.indexOf(value), 1)
   
@@ -393,6 +418,9 @@ $(document).on('filterSearchChipRemoval', (e) => {
 $(document).on('filterSearchClear', (e) => {
     sdglist = [];
     taglist =  [];
+    enablerslist = []
+    signature_solutionslist = []
+    rblac_prioritieslist = []
     resultdiv.empty()
     $("#content").html(contentCopy);
 });
@@ -402,6 +430,9 @@ $('.tag-chip').on('click', e =>{
     let textContent = e.target.getAttribute('text-value');
     taglist = [ textContent ]
     sdglist = []
+    enablerslist = []
+    signature_solutionslist = [ ]
+    rblac_prioritieslist = []
     contentdiv.empty()
     filterresult()
 } )
@@ -410,6 +441,9 @@ $('.sdg-chip').on('click', e =>{
     let textContent = e.target.getAttribute('text-value');
     sdglist = [textContent]
     taglist = []
+    enablerslist = []
+    signature_solutionslist = [ ]
+    rblac_prioritieslist = []
     contentdiv.empty()
     filterresult()
 } )
