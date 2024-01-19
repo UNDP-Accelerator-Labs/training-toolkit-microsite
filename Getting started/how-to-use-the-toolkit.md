@@ -7,8 +7,6 @@ layout: default
 # CONFIGURATION BELOW IS ONLY NEEDED IF YOU WANT TO USE TAGS AND CATEGORY IN THE TOOLKIT
 tags: [poverty, inequality, women empoverment, digital]
 
-sdg: [ No Poverty, Zero Hunger, Quality Education ]
-
 ---
 
 ## How to use this toolkit
