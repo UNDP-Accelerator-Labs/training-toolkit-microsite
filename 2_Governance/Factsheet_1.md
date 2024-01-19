@@ -3,6 +3,13 @@ title: Factsheet 1 on Public Innovation
 parent_order: 2
 nav_order: 1
 layout: default
+
+# CONFIGURATION BELOW IS ONLY NEEDED IF YOU WANT TO USE TAGS AND CATEGORY IN THE TOOLKIT
+Signature Solution: [Governance, Poverty]
+Enabler: [Strategic innovation]
+RBLAC Priorities: [Effective governance, Equity and inlcusion]
+SDG: [ SDG 1, SDG2]
+
 ---
 
 # Using design thinking to design public products or services 
