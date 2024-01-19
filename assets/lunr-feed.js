@@ -84,6 +84,9 @@ var store = [{% for post in site.pages %}{
   "content": {{post.content | strip_html | jsonify}},
   "tags": {{ post.tags | jsonify }},
   "sdg": {{ post.sdg | jsonify }},
+  "enablers": {{ post.enablers | jsonify }},
+  "signature_solutions": {{ post.signature_solutions | jsonify }},
+  "rblac_priorities": {{ post.rblac_priorities | jsonify }},
   "excerpt": {{ post.content | strip_html | truncatewords: 20 | jsonify }},
   "id": {{ count }}
 }{% unless forloop.last %},{% endunless %}{% endfor %}]
@@ -350,9 +353,8 @@ let contentCopy = $("#content").html(); // Store the current content
 
 let filterresult = () => {
     resultdiv.empty()
-    resultdiv.prepend('<h6 class="">Showing results for  ' + [...sdglist, ...taglist, ...rblac_prioritieslist, ...signature_solutionslist, ...enablerslist].toString() + '</h6>');
+    resultdiv.prepend('<h6 class="">Showing results for  ' + [ ...taglist, ...signature_solutionslist, ...enablerslist, ...sdglist, ...rblac_prioritieslist, ].toString() + '</h6>');
     for(post of store){
-        console.log('V ', post)
         if(post?.tags?.some(tg => taglist.includes(tg) )){
             contentdiv.empty()
             var searchitem = searchitemfn(post)
@@ -390,10 +392,11 @@ $(document).on('multiSelectInputToggle', (e) => {
     let { value, checked, name } = e.target;
     
     if(checked && name === 'tags') taglist.push(value)
-    else if(checked && name === 'signature_solutions') sdglist.push(value)
-    else if(checked && name === 'enablers') sdglist.push(value)
-    else if(checked && name === 'rblac_priorities') sdglist.push(value)
+    else if(checked && name === 'signature_solutions') signature_solutionslist.push(value)
+    else if(checked && name === 'enablers') enablerslist.push(value)
+    else if(checked && name === 'rblac_priorities') rblac_prioritieslist.push(value)
     else if(checked && name === 'sdg') sdglist.push(value)
+
     else if(!checked && name === 'signature_solutions' && signature_solutionslist.includes(value)) signature_solutionslist.splice(signature_solutionslist.indexOf(value), 1)
     else if(!checked && name === 'enablers' && enablerslist.includes(value)) enablerslist.splice(enablerslist.indexOf(value), 1)
     else if(!checked && name === 'rblac_priorities' && rblac_prioritieslist.includes(value)) rblac_prioritieslist.splice(rblac_prioritieslist.indexOf(value), 1)
