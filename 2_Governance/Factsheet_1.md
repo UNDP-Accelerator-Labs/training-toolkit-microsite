@@ -5,10 +5,12 @@ nav_order: 1
 layout: default
 
 # CONFIGURATION BELOW IS ONLY NEEDED IF YOU WANT TO USE TAGS AND CATEGORY IN THE TOOLKIT
-Signature Solution: [Governance, Poverty]
+tags: [Governance, Poverty]
+sdg: [ SDG 1, SDG2]
+
 Enabler: [Strategic innovation]
 RBLAC Priorities: [Effective governance, Equity and inlcusion]
-SDG: [ SDG 1, SDG2]
+
 
 ---
 
