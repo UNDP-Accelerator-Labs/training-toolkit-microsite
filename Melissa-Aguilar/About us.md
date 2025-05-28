@@ -7,4 +7,5 @@ layout: default
 
 
 #Qué es Botas Violeta?
-Texto xxxx 
+
+texto xxx 
