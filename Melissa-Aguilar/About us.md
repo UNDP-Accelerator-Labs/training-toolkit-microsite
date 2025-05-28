@@ -1,6 +1,6 @@
 ---
 title: Botas Violeta
-parent_order: 1
+parent_order: 7
 nav_order: 1
 layout: default
 ---
