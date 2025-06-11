@@ -14,6 +14,13 @@ var index = lunr(function () {
   this.ref('id')
 });
 
+
+function capitalize(str) {
+  return str && typeof str === 'string'
+    ? str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+    : str;
+}
+
 let tags = []
 let sdg = []
 let rblac_priorities = []
@@ -152,7 +159,7 @@ if(tags.length > 0){
         tg += `
             <li role="option">
                 <div class="form-check">
-                    <label for="tag${i+1}">${tags[i]?.toUpperCase()}</label>
+                    <label for="tag${i+1}">${capitalize(tags[i])}</label>
                     <input
                         type="checkbox"
                         id="${tags[i]}"
@@ -191,7 +198,7 @@ if(sdg.length > 0){
         tg += `
             <li role="option">
                 <div class="form-check">
-                    <label for="sdg${i+1}">${sdg[i]}</label>
+                    <label for="sdg${i+1}">${capitalize(sdg[i])}</label>
                     <input
                         type="checkbox"
                         id="${sdg[i]}"
@@ -269,7 +276,7 @@ if(signature_solutions.length > 0){
         tg += `
             <li role="option">
                 <div class="form-check">
-                    <label for="signature_solutions${i+1}">${signature_solutions[i]}</label>
+                    <label for="signature_solutions${i+1}">${capitalize(signature_solutions[i])}</label>
                     <input
                         type="checkbox"
                         id="${signature_solutions[i]}"
@@ -308,7 +315,7 @@ if(rblac_priorities.length > 0){
         tg += `
             <li role="option">
                 <div class="form-check">
-                    <label for="rblac_priorities${i+1}">${rblac_priorities[i]}</label>
+                    <label for="rblac_priorities${i+1}">${capitalize(rblac_priorities[i])}</label>
                     <input
                         type="checkbox"
                         id="${rblac_priorities[i]}"
